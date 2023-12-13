@@ -12,7 +12,7 @@ document.onkeyup = ({ keyCode }) => {
 
 const createSoundElem = ({ key, letter, sound, url }) => {
 	const soundElem = document.createElement('button')
-	soundElem.classList = 'sound relative w-full aspect-square flex flex-col justify-center gap-2 border border-zinc-700 rounded-lg bg-zinc-800/[65%] transition duration-250'
+	soundElem.classList = 'sound relative w-full aspect-square flex flex-col justify-center gap-2 border border-zinc-700 hover:border-zinc-500 focus:border-zinc-500 focus:outline-none rounded-lg bg-zinc-800/[65%] transition duration-250 group'
 	soundElem.setAttribute('keycode', key)
 
 	const soundElemHighlight = document.createElement('div')
@@ -24,14 +24,23 @@ const createSoundElem = ({ key, letter, sound, url }) => {
 
 	const soundElemSound = document.createElement('span')
 	soundElemSound.textContent = sound
-	soundElemSound.className = 'text-zinc-400'
+	soundElemSound.className = 'text-zinc-400 group-hover:text-indigo-400 transition-color duration-200'
 
 	soundElem.onmousedown = () => {
 		const soundElemAudio = new Audio(url)
 		soundElemAudio.play()
 		soundElemHighlight.classList.replace('opacity-0', 'opacity-100')
 	}
+
+	soundElem.onkeydown = ({ code }) => {
+		if (!['Enter', 'Space'].includes(code)) return
+		const soundElemAudio = new Audio(url)
+		soundElemAudio.play()
+		soundElemHighlight.classList.replace('opacity-0', 'opacity-100')
+	}
+
 	soundElem.onmouseup = () => soundElemHighlight.classList.replace('opacity-100', 'opacity-0')
+	soundElem.onkeyup = () => soundElemHighlight.classList.replace('opacity-100', 'opacity-0')
 
 	soundElem.append(soundElemLetter, soundElemSound, soundElemHighlight)
 	return soundElem
