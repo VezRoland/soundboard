@@ -16,7 +16,7 @@ const createSoundElem = ({ key, letter, sound, url }) => {
 	soundElem.setAttribute('keycode', key)
 
 	const soundElemHighlight = document.createElement('div')
-	soundElemHighlight.className = '-z-20 absolute top-5 w-full h-full opacity-0 blur-xl bg-indigo-600/[35%] transition duration-250'
+	soundElemHighlight.className = '-z-20 absolute top-5 w-full h-full opacity-0 blur-xl bg-indigo-600 transition duration-250'
 
 	const soundElemLetter = document.createElement('span')
 	soundElemLetter.textContent = letter

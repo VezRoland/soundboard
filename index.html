@@ -7,7 +7,8 @@
 	<script defer src="script.js"></script>
 	<title>Soundboard</title>
 </head>
-<body class="min-h-screen grid place-items-center text-zinc-200 bg-zinc-900">
+<body class="relative min-h-screen grid place-items-center text-zinc-200 bg-cover bg-[url('bg-img.jpg')]">
+	<div class="absolute w-full h-full backdrop-blur-sm bg-zinc-900/75"></div>
 	<main class="sounds w-full max-w-lg grid grid-cols-2 md:grid-cols-3 gap-6 p-6"></main>
 	<audio id="audio"></audio>
 </body>
