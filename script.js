@@ -12,7 +12,7 @@ document.onkeyup = ({ keyCode }) => {
 
 const createSoundElem = ({ key, letter, sound, url }) => {
 	const soundElem = document.createElement('button')
-	soundElem.classList = 'sound relative w-full aspect-square flex flex-col justify-center gap-2 border border-zinc-700 hover:border-zinc-500 focus:border-zinc-500 focus:outline-none rounded-lg bg-zinc-800/[65%] transition duration-250 group'
+	soundElem.classList = 'sound relative w-full aspect-square flex flex-col justify-center items-center gap-2 border border-zinc-700 hover:border-zinc-500 focus:border-zinc-500 focus:outline-none rounded-lg bg-zinc-800/[65%] transition duration-250 group'
 	soundElem.setAttribute('keycode', key)
 
 	const soundElemHighlight = document.createElement('div')
